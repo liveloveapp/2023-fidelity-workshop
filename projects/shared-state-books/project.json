@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "root": "projects/shared-state-books",
+  "sourceRoot": "projects/shared-state-books/src",
+  "prefix": "bco",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "projects/shared-state-books/src/**/*.ts",
+          "projects/shared-state-books/src/**/*.html"
+        ]
+      },
+      "outputs": ["{options.outputFile}"]
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/projects/shared-state-books"],
+      "options": {
+        "jestConfig": "projects/shared-state-books/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  }
+}

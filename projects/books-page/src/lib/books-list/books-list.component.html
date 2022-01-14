@@ -1,0 +1,50 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>
+      <h1>Books</h1>
+    </mat-card-title>
+
+    <mat-button-toggle-group
+      [value]="booksListStore.sortOrder$ | async"
+      (change)="booksListStore.setSortOrder($event.value)"
+      aria-label="Sort By"
+    >
+      <mat-button-toggle value="name">
+        <mat-icon>sort_by_alpha</mat-icon>
+      </mat-button-toggle>
+      <mat-button-toggle value="earnings">
+        <mat-icon>attach_money</mat-icon>
+      </mat-button-toggle>
+    </mat-button-toggle-group>
+
+    <mat-button-toggle-group
+      [value]="'asc'"
+      (change)="($event.value)"
+      aria-label="Sort Order"
+    >
+      <mat-button-toggle value="asc">
+        <mat-icon>arrow_upward</mat-icon>
+      </mat-button-toggle>
+      <mat-button-toggle value="dsc">
+        <mat-icon>arrow_downward</mat-icon>
+      </mat-button-toggle>
+    </mat-button-toggle-group>
+  </mat-card-header>
+
+  <mat-card-content>
+    <mat-list>
+      <mat-list-item
+        *ngFor="let book of books"
+        [attr.data-test-id]="'book-' + book.id"
+      >
+        <h3 mat-line>{{ book.name }}</h3>
+        <p mat-line>{{ book.earnings | currency }}</p>
+        <bco-book-actions
+          [isOnSmallDevice]="false"
+          (select)="select.emit(book)"
+          (delete)="delete.emit(book)"
+        ></bco-book-actions>
+      </mat-list-item>
+    </mat-list>
+  </mat-card-content>
+</mat-card>

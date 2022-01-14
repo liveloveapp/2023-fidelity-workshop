@@ -1,0 +1,18 @@
+{
+  "projectType": "library",
+  "root": "projects/shared-models",
+  "sourceRoot": "projects/shared-models/src",
+  "prefix": "book-co",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "projects/shared-models/src/**/*.ts",
+          "projects/shared-models/src/**/*.html"
+        ]
+      },
+      "outputs": ["{options.outputFile}"]
+    }
+  }
+}

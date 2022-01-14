@@ -1,0 +1,35 @@
+<ng-container *ngIf="isLoading$ | async; else loaded">
+  <div class="spinner">
+    <mat-spinner [diameter]="40"></mat-spinner>
+  </div>
+</ng-container>
+<ng-template #loaded>
+  <ng-container *ngIf="error$ | async as error; else books">
+    <div class="error" data-test-id="error">
+      <h2>Error</h2>
+      <p>An unexpected error occurred. Please try again.</p>
+      <pre>{{ error | json }}</pre>
+    </div>
+  </ng-container>
+  <ng-template #books>
+    <div class="container">
+      <div class="col-50">
+        <bco-books-total [total]="total$ | async"> </bco-books-total>
+
+        <bco-books-list
+          [books]="books$ | async"
+          (select)="onSelectBook($event)"
+          (delete)="onDeleteBook($event)"
+        ></bco-books-list>
+      </div>
+
+      <bco-book-detail
+        class="col-50"
+        [book]="currentBook$ | async"
+        (save)="onSave($event)"
+        (cancel)="onCancel()"
+      >
+      </bco-book-detail>
+    </div>
+  </ng-template>
+</ng-template>

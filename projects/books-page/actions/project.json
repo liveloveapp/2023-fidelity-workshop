@@ -1,0 +1,14 @@
+{
+  "root": "projects/books-page/actions",
+  "sourceRoot": "projects/books-page/actions/src",
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["projects/books-page/actions/**/*.ts"]
+      },
+      "outputs": ["{options.outputFile}"]
+    }
+  }
+}

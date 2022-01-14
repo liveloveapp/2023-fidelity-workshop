@@ -1,0 +1,104 @@
+{
+  "projectType": "application",
+  "root": "projects/earnings-app",
+  "sourceRoot": "projects/earnings-app/src",
+  "prefix": "book-co",
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/projects/earnings-app",
+        "index": "projects/earnings-app/src/index.html",
+        "main": "projects/earnings-app/src/main.ts",
+        "polyfills": "projects/earnings-app/src/polyfills.ts",
+        "tsConfig": "projects/earnings-app/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": [
+          "projects/earnings-app/src/favicon.ico",
+          "projects/earnings-app/src/assets"
+        ],
+        "styles": [
+          "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+          "projects/earnings-app/src/styles.scss"
+        ],
+        "scripts": []
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "fileReplacements": [
+            {
+              "replace": "projects/earnings-app/src/environments/environment.ts",
+              "with": "projects/earnings-app/src/environments/environment.prod.ts"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "browserTarget": "earnings-app:build:production"
+        },
+        "development": {
+          "browserTarget": "earnings-app:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "earnings-app:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "projects/earnings-app/src/**/*.ts",
+          "projects/earnings-app/src/**/*.html"
+        ]
+      },
+      "outputs": ["{options.outputFile}"]
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/projects/earnings-app"],
+      "options": {
+        "jestConfig": "projects/earnings-app/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "backend": {
+      "executor": "@nrwl/workspace:run-commands",
+      "outputs": [],
+      "options": {
+        "command": "json-server db.json --watch"
+      }
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "projectType": "library",
+  "root": "projects/auth",
+  "sourceRoot": "projects/auth/src",
+  "prefix": "book-co",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/angular:ng-packagr-lite",
+      "outputs": ["dist/projects/auth"],
+      "options": {
+        "project": "projects/auth/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "projects/auth/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "projects/auth/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "projects/auth/src/**/*.ts",
+          "projects/auth/src/**/*.html",
+          "projects/auth/actions/**/*.ts",
+          "projects/auth/actions/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}

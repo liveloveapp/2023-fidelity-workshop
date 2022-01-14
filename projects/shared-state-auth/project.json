@@ -1,0 +1,34 @@
+{
+  "projectType": "library",
+  "root": "projects/shared-state-auth",
+  "sourceRoot": "projects/shared-state-auth/src",
+  "prefix": "book-co",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/angular:ng-packagr-lite",
+      "outputs": ["dist/projects/shared-state-auth"],
+      "options": {
+        "project": "projects/shared-state-auth/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "projects/shared-state-auth/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "projects/shared-state-auth/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "projects/shared-state-auth/src/**/*.ts",
+          "projects/shared-state-auth/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}

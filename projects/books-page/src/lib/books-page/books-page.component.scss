@@ -1,0 +1,27 @@
+.spinner {
+  display: block;
+  width: 40px;
+  margin: 80px auto;
+}
+
+:host >>> mat-list-item:hover {
+  cursor: pointer;
+  background: whitesmoke;
+}
+
+.error {
+  display: block;
+  color: red;
+  margin: 32px;
+  background-color: #f4d0cd;
+  padding: 16px;
+  border-radius: 2px;
+
+  pre {
+    padding: 8px;
+    border: 1px solid red;
+    background-color: #fbe9e7;
+    margin: 0 0 4px;
+    border-radius: 2px;
+  }
+}
