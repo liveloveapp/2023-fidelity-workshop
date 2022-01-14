@@ -37,6 +37,9 @@ describe('Login Page', () => {
       .find('[data-test-id="passwordInput"]')
       .type('password');
 
-    cy.get('bco-login-form').find('[data-test-id="loginButton"]').click();
+    cy.get('bco-login-form')
+      .find('[data-test-id="loginButton"]')
+      .debug()
+      .click();
   });
 });
