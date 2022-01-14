@@ -19,4 +19,10 @@ describe('Login Page', () => {
       cy.get('input[type="password"]').should('be.visible');
     });
   });
+
+  it('should show two input elements', () => {
+    cy.visit('/');
+
+    cy.get('form').find('input').should('have.length', 2);
+  });
 });
