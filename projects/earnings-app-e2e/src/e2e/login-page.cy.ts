@@ -10,4 +10,13 @@ describe('Login Page', () => {
 
     cy.get('form').should('be.visible');
   });
+
+  it('should show username and password inputs', () => {
+    cy.visit('/');
+
+    cy.get('form').within(($frm) => {
+      cy.get('input[type="text"]').should('be.visible');
+      cy.get('input[type="password"]').should('be.visible');
+    });
+  });
 });
