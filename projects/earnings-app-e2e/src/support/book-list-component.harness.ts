@@ -1,8 +1,8 @@
 export const getBook = (bookId: string) => cy.getByTestId(`book-${bookId}`);
 export const getEditBookButton = (bookId: string) =>
-  getBook(bookId).find('[data-test-id="bookEditButton"]');
+  getBook(bookId).findByTestId('bookEditButton');
 export const getDeleteBookButton = (bookId: string) =>
-  getBook(bookId).find('[data-test-id="bookDeleteButton"]');
+  getBook(bookId).findByTestId('bookDeleteButton');
 
 export const clickEditButtonOnBook = (bookId: string) => {
   getEditBookButton(bookId).click();
