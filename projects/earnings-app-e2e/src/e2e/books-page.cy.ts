@@ -21,24 +21,17 @@ describe('Books Page', () => {
     BooksApi.deleteAllBooks();
     BooksApi.createBook(book);
 
+    cy.intercept('GET', 'http://localhost:3000/books').as('getBooks');
+
+    AuthApi.login('Admin', 'password');
+
     cy.visit('/');
 
-    cy.get('bco-login-form')
-      .find('[data-test-id="usernameInput"]')
-      .type('Admin');
-
-    cy.get('bco-login-form')
-      .find('[data-test-id="passwordInput"]')
-      .type('password');
-
-    cy.get('bco-login-form')
-      .find('[data-test-id="loginButton"]')
-      .debug()
-      .click();
+    cy.wait('@getBooks');
   });
 
   it('should show a list all of the books', () => {
-    cy.get(`[data-test-id="book-${book.id}"]`).should('contain', book.name);
+    BookListComponent.getBook(book.id).should('contain', book.name);
   });
 
   it('should gracefully show an error message when loading the books fails', () => {});
