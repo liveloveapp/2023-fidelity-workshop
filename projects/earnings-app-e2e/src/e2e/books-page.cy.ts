@@ -18,10 +18,28 @@ describe('Books Page', () => {
         'The Lord of the Rings is an epic high fantasy novel written by English author and scholar J. R. R. Tolkien.',
     };
 
+    BooksApi.deleteAllBooks();
+    BooksApi.createBook(book);
+
     cy.visit('/');
+
+    cy.get('bco-login-form')
+      .find('[data-test-id="usernameInput"]')
+      .type('Admin');
+
+    cy.get('bco-login-form')
+      .find('[data-test-id="passwordInput"]')
+      .type('password');
+
+    cy.get('bco-login-form')
+      .find('[data-test-id="loginButton"]')
+      .debug()
+      .click();
   });
 
-  it('should show a list all of the books', () => {});
+  it('should show a list all of the books', () => {
+    cy.get(`[data-test-id="book-${book.id}"]`).should('contain', book.name);
+  });
 
   it('should gracefully show an error message when loading the books fails', () => {});
 
