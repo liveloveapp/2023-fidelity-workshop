@@ -30,6 +30,7 @@ function setup(options: { throwErrorWhenLoadingBooks?: boolean } = {}) {
   }
 
   cy.intercept('POST', 'http://localhost:3000/books').as('createBook');
+  cy.intercept('PATCH', 'http://localhost:3000/books/*').as('updateBook');
 
   AuthApi.login('Admin', 'password');
 
@@ -82,6 +83,11 @@ describe('Books Page', () => {
       name: newName,
     });
     BookFormComponent.saveForm();
+    cy.wait('@updateBook');
+
+    BooksApi.getBook(book.id).its('body').should('deep.include', {
+      name: newName,
+    });
   });
 
   it('should let you delete a book', () => {});
