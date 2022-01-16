@@ -19,21 +19,21 @@ function setup(options: { throwErrorWhenLoadingBooks?: boolean } = {}) {
   BooksApi.createBook(book);
 
   if (options.throwErrorWhenLoadingBooks) {
-    cy.intercept('GET', 'http://localhost:3000/books', {
+    cy.intercept('GET', Cypress.env('API_BASE_URL'), {
       statusCode: 500,
       body: {
         error: 'Internal Server Error',
       },
     }).as('getBooks');
   } else {
-    cy.intercept('GET', 'http://localhost:3000/books').as('getBooks');
+    cy.intercept('GET', Cypress.env('API_BASE_URL')).as('getBooks');
   }
 
-  cy.intercept('POST', 'http://localhost:3000/books').as('createBook');
-  cy.intercept('PATCH', 'http://localhost:3000/books/*').as('updateBook');
-  cy.intercept('DELETE', 'http://localhost:3000/books/*').as('deleteBook');
+  cy.intercept('POST', Cypress.env('API_BASE_URL')).as('createBook');
+  cy.intercept('PATCH', `${Cypress.env('API_BASE_URL')}/*`).as('updateBook');
+  cy.intercept('DELETE', `${Cypress.env('API_BASE_URL')}/*`).as('deleteBook');
 
-  AuthApi.login('Admin', 'password');
+  AuthApi.login(Cypress.env('USERNAME'), Cypress.env('PASSWORD'));
 
   cy.visit('/');
 
