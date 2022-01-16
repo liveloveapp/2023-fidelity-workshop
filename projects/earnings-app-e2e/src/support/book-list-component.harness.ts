@@ -1,5 +1,4 @@
-export const getBook = (bookId: string) =>
-  cy.get(`[data-test-id="book-${bookId}"]`);
+export const getBook = (bookId: string) => cy.getByTestId(`book-${bookId}`);
 export const getEditBookButton = (bookId: string) =>
   getBook(bookId).find('[data-test-id="bookEditButton"]');
 export const getDeleteBookButton = (bookId: string) =>
