@@ -1,9 +1,11 @@
 import * as dotenv from 'dotenv';
 
 const plugin: Cypress.PluginConfig = (on, config) => {
-  config.env.API_BASE_URL = 'http://localhost:3000/books';
-  config.env.USERNAME = 'Admin';
-  config.env.PASSWORD = 'password';
+  dotenv.config();
+
+  config.env.API_BASE_URL = process.env.API_BASE_URL;
+  config.env.USERNAME = process.env.USERNAME;
+  config.env.PASSWORD = process.env.PASSWORD;
 
   return config;
 };
