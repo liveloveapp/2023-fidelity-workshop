@@ -1,3 +1,10 @@
 {
-  "books": []
+  "books": [
+    {
+      "id": "e4e320de-dd4c-4e17-8c26-cf73c34d8f55",
+      "name": "The Lord of the Rings",
+      "earnings": "100",
+      "description": "The Lord of the Rings is an epic high fantasy novel written by English author and scholar J. R. R. Tolkien."
+    }
+  ]
 }
