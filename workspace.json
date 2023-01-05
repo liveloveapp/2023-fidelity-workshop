@@ -10,5 +10,6 @@
     "shared-services": "projects/shared-services",
     "shared-state-auth": "projects/shared-state-auth",
     "shared-state-books": "projects/shared-state-books"
-  }
+  },
+  "$schema": "./node_modules/nx/schemas/workspace-schema.json"
 }

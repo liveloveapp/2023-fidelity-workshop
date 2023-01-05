@@ -1,3 +1,5 @@
+
+/* TODO(mdc-migration): The following rule targets internal classes of list that may no longer apply for the MDC version. */
 mat-list-item:not(:first-of-type) {
   border-top: 1px solid #efefef;
 }
@@ -6,26 +8,25 @@ mat-list-item:not(:first-of-type) {
   color: #777;
 }
 
-mat-list-item {
+.book-list-item {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+
+  > h3, > p {
+    margin: 0;
+  }
 }
 
 mat-card-header {
-  position: relative;
+  display: flex;
 }
 
+.spacer {
+  flex: 1 auto;
+}
+
+/* TODO(mdc-migration): The following rule targets internal classes of button that may no longer apply for the MDC version. */
 mat-button-toggle-group {
   transform: scale(0.7);
-  position: absolute;
-  top: -8px;
-}
-
-mat-button-toggle-group:first-of-type {
-  right: 92px;
-}
-
-mat-button-toggle-group:last-of-type {
-  right: -18px;
 }

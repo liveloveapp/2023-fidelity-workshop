@@ -1,8 +1,10 @@
-<mat-card>
+<mat-card appearance="outlined">
   <mat-card-header>
     <mat-card-title>
       <h1>Books</h1>
     </mat-card-title>
+
+    <div class="spacer"></div>
 
     <mat-button-toggle-group
       [value]="booksListStore.sortOrder$ | async"
@@ -37,13 +39,15 @@
         *ngFor="let book of books"
         [attr.data-test-id]="'book-' + book.id"
       >
-        <h3 mat-line>{{ book.name }}</h3>
-        <p mat-line>{{ book.earnings | currency }}</p>
-        <bco-book-actions
-          [isOnSmallDevice]="false"
-          (select)="select.emit(book)"
-          (delete)="delete.emit(book)"
-        ></bco-book-actions>
+        <div class="book-list-item">
+          <h3 mat-line>{{ book.name }}</h3>
+          <p mat-line>{{ book.earnings | currency }}</p>
+          <bco-book-actions
+            [isOnSmallDevice]="false"
+            (select)="select.emit(book)"
+            (delete)="delete.emit(book)"
+          ></bco-book-actions>
+        </div>
       </mat-list-item>
     </mat-list>
   </mat-card-content>

@@ -9,6 +9,6 @@
     "types": [],
     "lib": ["dom", "es2018"]
   },
-  "exclude": [],
+  "exclude": ["jest.config.ts"],
   "include": ["**/*.ts"]
 }

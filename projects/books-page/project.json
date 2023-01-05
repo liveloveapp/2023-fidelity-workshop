@@ -1,6 +1,7 @@
 {
+  "name": "books-page",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "library",
-  "root": "projects/books-page",
   "sourceRoot": "projects/books-page/src",
   "prefix": "bco",
   "targets": {
@@ -16,9 +17,9 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/projects/books-page"],
+      "outputs": ["{workspaceRoot}/coverage/projects/books-page"],
       "options": {
-        "jestConfig": "projects/books-page/jest.config.js",
+        "jestConfig": "projects/books-page/jest.config.ts",
         "passWithNoTests": true
       }
     }

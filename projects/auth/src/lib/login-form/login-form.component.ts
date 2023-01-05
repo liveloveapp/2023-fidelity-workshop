@@ -21,6 +21,6 @@ export class LoginFormComponent {
   });
 
   onSubmit() {
-    this.login.emit(this.formGroup.value);
+    this.login.emit(this.formGroup.value as LoginEvent);
   }
 }

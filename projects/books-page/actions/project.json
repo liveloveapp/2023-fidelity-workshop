@@ -1,5 +1,6 @@
 {
-  "root": "projects/books-page/actions",
+  "name": "books-page-actions",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "projects/books-page/actions/src",
   "projectType": "library",
   "targets": {

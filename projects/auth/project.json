@@ -1,12 +1,13 @@
 {
+  "name": "auth",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "library",
-  "root": "projects/auth",
   "sourceRoot": "projects/auth/src",
   "prefix": "book-co",
   "targets": {
     "build": {
       "executor": "@nrwl/angular:ng-packagr-lite",
-      "outputs": ["dist/projects/auth"],
+      "outputs": ["{workspaceRoot}/dist/projects/auth"],
       "options": {
         "project": "projects/auth/ng-package.json"
       },

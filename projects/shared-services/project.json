@@ -1,6 +1,7 @@
 {
+  "name": "shared-services",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "library",
-  "root": "projects/shared-services",
   "sourceRoot": "projects/shared-services/src",
   "prefix": "book-co",
   "targets": {

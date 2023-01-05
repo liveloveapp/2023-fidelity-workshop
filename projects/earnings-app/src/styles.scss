@@ -81,26 +81,6 @@ td {
   padding: 8px 30px;
 }
 
-.container {
-  display: flex;
-  margin: 10px;
-  flex-wrap: wrap;
-}
-
-.container [class*='col'] {
-  padding: 10px;
-  flex: 1;
-}
-
-mat-card-header .mat-card-header-text {
-  margin-left: 0;
-  border-bottom: 1px solid #ffd740;
-}
-
-mat-card-title h1 {
-  display: inline;
-}
-
 mat-card {
   margin-bottom: 20px !important;
 }

@@ -1,12 +1,13 @@
 {
+  "name": "shared-state-auth",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "library",
-  "root": "projects/shared-state-auth",
   "sourceRoot": "projects/shared-state-auth/src",
   "prefix": "book-co",
   "targets": {
     "build": {
       "executor": "@nrwl/angular:ng-packagr-lite",
-      "outputs": ["dist/projects/shared-state-auth"],
+      "outputs": ["{workspaceRoot}/dist/projects/shared-state-auth"],
       "options": {
         "project": "projects/shared-state-auth/ng-package.json"
       },

@@ -1,13 +1,15 @@
 {
-  "root": "projects/earnings-app-e2e",
+  "name": "earnings-app-e2e",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "projects/earnings-app-e2e/src",
   "projectType": "application",
   "targets": {
     "e2e": {
       "executor": "@nrwl/cypress:cypress",
       "options": {
-        "cypressConfig": "projects/earnings-app-e2e/cypress.json",
-        "devServerTarget": "earnings-app:serve:development"
+        "cypressConfig": "projects/earnings-app-e2e/cypress.config.ts",
+        "devServerTarget": "earnings-app:serve:development",
+        "testingType": "e2e"
       },
       "configurations": {
         "production": {

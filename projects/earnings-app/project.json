@@ -1,6 +1,7 @@
 {
+  "name": "earnings-app",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
-  "root": "projects/earnings-app",
   "sourceRoot": "projects/earnings-app/src",
   "prefix": "book-co",
   "targets": {
@@ -87,14 +88,14 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/projects/earnings-app"],
+      "outputs": ["{workspaceRoot}/coverage/projects/earnings-app"],
       "options": {
-        "jestConfig": "projects/earnings-app/jest.config.js",
+        "jestConfig": "projects/earnings-app/jest.config.ts",
         "passWithNoTests": true
       }
     },
     "backend": {
-      "executor": "@nrwl/workspace:run-commands",
+      "executor": "nx:run-commands",
       "outputs": [],
       "options": {
         "command": "json-server db.json --watch"

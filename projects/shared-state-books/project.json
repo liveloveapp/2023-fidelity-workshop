@@ -1,6 +1,7 @@
 {
+  "name": "shared-state-books",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "library",
-  "root": "projects/shared-state-books",
   "sourceRoot": "projects/shared-state-books/src",
   "prefix": "bco",
   "targets": {
@@ -16,9 +17,9 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/projects/shared-state-books"],
+      "outputs": ["{workspaceRoot}/coverage/projects/shared-state-books"],
       "options": {
-        "jestConfig": "projects/shared-state-books/jest.config.js",
+        "jestConfig": "projects/shared-state-books/jest.config.ts",
         "passWithNoTests": true
       }
     }
