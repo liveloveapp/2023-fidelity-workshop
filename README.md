@@ -41,13 +41,3 @@ To run the Cypress e2e tests execute the following command from your terminal:
 ```sh
 npm run test
 ```
-
-## M&T Specific Instructions
-After cloning the repository, you may need to point NPM to use M&T's Artifactory instance:
-```sh
-npm config set registry http://bar.prod.mtb.com/artifactory/api/npm/mtb-npm
-```
-
-Additionally, you may need to download Cypress directly: https://download.cypress.io
-
-After installing Cypress, you will need to set the `CYPRESS_INSTALL_BINARY` to point at the path of the ZIP file you downloaded.
