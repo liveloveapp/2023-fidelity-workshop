@@ -72,7 +72,17 @@ describe('Books Page', () => {
       });
   });
 
-  it('should let you edit a book', () => {});
+  it('should let you edit a book', () => {
+    const book = setup();
+    const newName = 'Updated Book Name';
+
+    BookListComponent.clickEditButtonOnBook(book.id);
+    BookFormComponent.fillForm({
+      ...book,
+      name: newName,
+    });
+    BookFormComponent.saveForm();
+  });
 
   it('should let you delete a book', () => {});
 });

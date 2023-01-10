@@ -11,8 +11,10 @@ export const getSaveButton = () =>
   getBookForm().find('[data-test-id="saveButton"]');
 
 export const fillForm = (book: BookRequiredProps) => {
-  getNameInput().type(book.name);
-  getEarningsInput().type(book.earnings);
-  getDescriptionInput().type(book.description || '');
+  getNameInput().clear().type(book.name);
+  getEarningsInput().clear().type(book.earnings);
+  getDescriptionInput()
+    .clear()
+    .type(book.description || '');
 };
 export const saveForm = () => getSaveButton().click();
