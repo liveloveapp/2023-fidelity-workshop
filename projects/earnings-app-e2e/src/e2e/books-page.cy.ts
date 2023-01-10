@@ -31,6 +31,7 @@ function setup(options: { throwErrorWhenLoadingBooks?: boolean } = {}) {
 
   cy.intercept('POST', 'http://localhost:3000/books').as('createBook');
   cy.intercept('PATCH', 'http://localhost:3000/books/*').as('updateBook');
+  cy.intercept('DELETE', 'http://localhost:3000/books/*').as('deleteBook');
 
   AuthApi.login('Admin', 'password');
 
@@ -90,5 +91,18 @@ describe('Books Page', () => {
     });
   });
 
-  it('should let you delete a book', () => {});
+  it('should let you delete a book', () => {
+    const book = setup();
+
+    BookListComponent.clickDeleteButtonOnBook(book.id);
+    cy.wait('@deleteBook');
+
+    BooksApi.getBooks()
+      .its('body')
+      .should((books) => {
+        const bookExists = books.some((b) => b.id === book.id);
+
+        expect(bookExists).to.be.false;
+      });
+  });
 });
