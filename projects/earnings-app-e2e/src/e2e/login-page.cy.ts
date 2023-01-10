@@ -15,8 +15,8 @@ describe('Login Page', () => {
     cy.visit('/');
 
     cy.get('form').within(($frm) => {
-      cy.get('input[type="text"]').should('be.visible');
-      cy.get('input[type="password"]').should('be.visible');
+      cy.get('[data-test-id="usernameInput"]').should('be.visible');
+      cy.get('[data-test-id="passwordInput"]').should('be.visible');
     });
   });
 
