@@ -51,7 +51,17 @@ describe('Books Page', () => {
     BooksPage.getError().should('contain', 'Error');
   });
 
-  it('should let you create a book', () => {});
+  it('should let you create a book', () => {
+    setup();
+    const book: BookRequiredProps = {
+      name: 'My Book',
+      earnings: '100',
+      description: 'My Book Description',
+    };
+
+    BookFormComponent.fillForm(book);
+    BookFormComponent.saveForm();
+  });
 
   it('should let you edit a book', () => {});
 
