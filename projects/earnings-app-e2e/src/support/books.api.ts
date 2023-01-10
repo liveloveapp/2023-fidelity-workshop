@@ -1,6 +1,6 @@
 import { BookModel } from '@book-co/shared-models';
 
-const API_BASE_URL = 'http://localhost:3000/books';
+const API_BASE_URL = Cypress.env('API_BASE_URL');
 
 export function getBooks() {
   return cy.request<BookModel[]>({
